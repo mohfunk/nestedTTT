@@ -2,27 +2,25 @@
 #define board_hpp
 #include"grid.h"
 #include<string>
-
+class Grid;
 class Board {
-friend class Grid;
 	Grid *grids[3][3];
-	int current_grid_x;
-	int current_grid_y;
+	int activeGridX;
+	int activeGridY;
 	char turn;
 	char textDisplay[17][29];
-  char results[3][3];
+  	char results[3][3];
 	bool ended;
 	std::string action;
 public:
-	Board();
+	Board() {} // ctor
 	~Board();
 	void print();
 	void reset();
 	void setup();
-	void Raction(std::string action);
-	void change_turn(char turn);
-	bool check_win_game();
-	bool has_ended();
+	void inAction(std::string action);
+	void changeTurn(char turn) { if (turn == 'X') this->turn == 'O'; else this->turn = 'X'}
+	bool hasEnded() { return this->ended; }
 };
 
 #endif

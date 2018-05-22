@@ -1,15 +1,8 @@
 #include"../include/board.h"
-#include"../include/grid.h"
 #include<iostream>
-#include<string>
 using namespace std;
 
 
-
-// ctor
-Board::Board(){
-
-}
 
 // dtor
 Board::~Board(){
@@ -30,9 +23,9 @@ void Board::reset() {
 			grids[i][j]->reset();
 		}
 	}
-	current_grid_x = 1;
-	current_grid_y = 1;
-	grids[1][1]->set_current();
+	activeGridX = 1;
+	activeGridY = 2;
+	grids[1][1]->setActive();
 	turn = 'X';
 }
 void Board::setup() {
@@ -100,7 +93,6 @@ void Board::setup() {
 			}
 		}
 	}
-	//grids[2][2].print();
 }
 
 
@@ -114,43 +106,19 @@ void Board::print() {
 }
 
 
-bool Board::check_win_game() {
-}
+void Board::inAction(string action) {
+	this->grids[activeGridY][activeGridX]->play_turn(this->turn, action);
+  	cout << this->results[activeGridY][activeGridX] << endl;
 
-bool Board::has_ended()  {
-	return this->ended;
-}
-
-void Board::Raction(string action) {
-	this->grids[current_grid_y][current_grid_x]->play_turn(this->turn, action);
-  cout << this->results[current_grid_y][current_grid_x]<<endl;
-        if(!this->results[current_grid_y][current_grid_x])  {
-		this->results[current_grid_y][current_grid_x] = this->grids[current_grid_y][current_grid_x]->check_win_grid(this->turn, action);
-        	if(this->results[current_grid_y][current_grid_x])  {
-	        	this->ended = this->check_win_game();
-		}
-	}
-
-	this->grids[current_grid_y][current_grid_x]->rem_current();
-	change_turn(this->turn);
-	if (action[0] == 'u') { current_grid_y = 0;}
-	if (action[0] == 'm') { current_grid_y = 1;}
-	if (action[0] == 'l') { current_grid_y = 2;}
-	if (action[1] == 'l') { current_grid_x = 0;}
-	if (action[1] == 'm') { current_grid_x = 1;}
-	if (action[1] == 'r') { current_grid_x = 2;}
-	this->grids[current_grid_y][current_grid_x]->set_current();
+	this->grids[activeGridY][activeGridX]->setInactive();
+	nextTurn(this->turn);
+	if (action[0] == 'u') { activeGridY= 0;}
+	if (action[0] == 'm') { activeGridY= 1;}
+	if (action[0] == 'l') { activeGridY= 2;}
+	if (action[1] == 'l') { activeGridX = 0;}
+	if (action[1] == 'm') { activeGridX = 1;}
+	if (action[1] == 'r') { activeGridX = 2;}
+	this->grids[activeGridY][activeGridX]->setActive();
 	setup();
 	print();
-}
-
-
-
-
-
-
-
-void Board::change_turn(char turn) {
-	if (turn == 'X') { this->turn = 'O';}
-	else { this->turn = 'X';}
 }
