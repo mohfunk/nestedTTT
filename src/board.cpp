@@ -25,7 +25,7 @@ void Board::reset() {
 	}
 	activeGridX = 1;
 	activeGridY = 2;
-	grids[1][1]->setActive();
+	grids[1][1]->set_current();
 	turn = 'X';
 }
 void Board::setup() {
@@ -110,15 +110,15 @@ void Board::inAction(string action) {
 	this->grids[activeGridY][activeGridX]->play_turn(this->turn, action);
   	cout << this->results[activeGridY][activeGridX] << endl;
 
-	this->grids[activeGridY][activeGridX]->setInactive();
-	nextTurn(this->turn);
+	this->grids[activeGridY][activeGridX]->rem_current();
+	changeTurn(this->turn);
 	if (action[0] == 'u') { activeGridY= 0;}
 	if (action[0] == 'm') { activeGridY= 1;}
 	if (action[0] == 'l') { activeGridY= 2;}
 	if (action[1] == 'l') { activeGridX = 0;}
 	if (action[1] == 'm') { activeGridX = 1;}
 	if (action[1] == 'r') { activeGridX = 2;}
-	this->grids[activeGridY][activeGridX]->setActive();
+	this->grids[activeGridY][activeGridX]->set_current();
 	setup();
 	print();
 }

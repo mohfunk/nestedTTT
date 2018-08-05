@@ -5,7 +5,7 @@
 
 class Controller {
 	Board *board;			// pointer to the main board
-	public:
+public:
 	Controller();			// ctor
 	~Controller();			// dtor
 	void play();			// Main Game loop.

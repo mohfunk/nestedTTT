@@ -3,18 +3,18 @@
 #include<string>
 
 class Grid{
-  char cells[3][3];
-	bool current;
+    char cells[3][3];
+    bool current;
 public:
-  Grid();
-  ~Grid();
-  void print();
-  void reset();
-	char get_char_print(int, int);
-	void play_turn(char, std::string);
-	char check_win_grid(char,std::string);
-	void set_current();
-	void rem_current();
+    Grid();
+    ~Grid();
+    void print();
+    void reset();
+    char get_char_print(int, int);
+    void play_turn(char, std::string);
+    char check_win_grid(char,std::string);
+    void set_current();
+    void rem_current();
 };
 
 #endif

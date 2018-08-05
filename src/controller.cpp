@@ -47,10 +47,10 @@ void Controller::play() {
 			// Add save game in a file option
 		} else {
 			cout << endl;
-			this->board->Raction(input);
+			this->board->inAction(input);
 		}
-		if(this->board->has_ended()) {break;}
+		if(this->board->hasEnded()) {break;}
 	}
-	if(this->board->has_ended())
+	if(this->board->hasEnded())
 		cout << "You have won the game." <<endl;
 }

@@ -19,7 +19,7 @@ public:
 	void reset();
 	void setup();
 	void inAction(std::string action);
-	void changeTurn(char turn) { if (turn == 'X') this->turn == 'O'; else this->turn = 'X'}
+	void changeTurn(char turn) { if (turn == 'X') this->turn = 'O'; else this->turn = 'X';}
 	bool hasEnded() { return this->ended; }
 };
 

@@ -36,7 +36,8 @@ void Grid::print() {
 
 }
 char Grid::get_char_print(int i, int ones) {
-	int x, y = 0;
+	int x = 0;
+	int y = 0;
 	if (ones == 0) {
 		x = 0;
 	} else if (ones == 4) {
@@ -51,7 +52,7 @@ char Grid::get_char_print(int i, int ones) {
 }
 
 char Grid::check_win_grid(char turn, string action) {
-
+return 'z';
 }
 
 void Grid::play_turn(char turn, string posn) {
