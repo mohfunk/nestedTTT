@@ -1,18 +1,19 @@
 #ifndef grid_h
 #define grid_h
+
 #include<string>
 
 class Grid{
-    char cells[3][3];
+    std::string cells[3][3];
     bool current;
 public:
     Grid();
-    ~Grid();
+   ~Grid();
     void print();
     void reset();
-    char get_char_print(int, int);
-    void play_turn(char, std::string);
-    char check_win_grid(char,std::string);
+    std::string get_char_print(int, int);
+    void play_turn(std::string, std::string);
+    char check_win_grid(std::string,std::string);
     void set_current();
     void rem_current();
 };
