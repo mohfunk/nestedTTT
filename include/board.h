@@ -22,7 +22,7 @@ class Board {
     void        reset();
     void        setup();
     void        in_action(std::string action);
-    void        change_turn(std::string turn) { if (turn == "✕") this->turn = "⭘"; else this->turn = "✕";}
+    void        change_turn(std::string turn) { if (turn == "31m✕") this->turn = "32m⭘"; else this->turn = "31m✕";}
     bool        get_ended() { return this->ended; }
 };
 

@@ -2,6 +2,8 @@
 #include<iostream>
 using namespace std;
 
+
+#include "../include/color.h"
 Board::~Board() 
 {
     for(int i = 0; i < 3; ++i)
@@ -23,7 +25,7 @@ void Board::reset()
     active_x = 1;
     active_y = 1;
     grids[1][1]->set_current();
-    turn = "✕";
+    turn = "31m✕";
 }
 
 void Board::setup() 
@@ -33,20 +35,20 @@ void Board::setup()
     for (int i = 0; i < 9; ++i) {
         im = i % 3;
         if ( im == 0 && i != 0 ) {
-          ++gx;
+          ++gy;
             cout << endl;
         }
         for(int j = 0; j < 9; ++j) {
             cout << "   ";
             jm = j % 3;
             if ( jm == 0 && j != 0 ) {
-                ++gy;
+                ++gx;
                 cout << "   ";
             }
             display[i][j] = grids[gy][gx]->get_char_print(im, jm); 
-            cout << display[i][j] << "   ";
+            cout << ESC + display[i][j] + RST << "   ";
         }
-        gy = 0;
+        gx = 0;
         cout << endl;
         cout << endl;
         cout << endl;

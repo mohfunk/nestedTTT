@@ -16,7 +16,7 @@ void Grid::reset()
 {
     for(int i = 0; i < 3; i++)
         for(int j = 0; j < 3; j++)
-            cells[i][j] = ".";
+            cells[i][j] = "30m.";
 }
 
 void Grid::print() 
@@ -54,8 +54,8 @@ void Grid::set_current()
     if (current == false) {current = true;}
     for(int i = 0; i < 3; ++i) {
         for(int j = 0; j < 3; ++j) {
-            if (cells[i][j] == ".") {
-                cells[i][j] = "●";
+            if (cells[i][j] == "30m.") {
+                cells[i][j] = "1;34m.";
             }
         }
     }
@@ -66,8 +66,8 @@ void Grid::rem_current()
     if(current == true) { current = false;}
     for(int i = 0; i < 3; ++i) {
         for(int j = 0; j < 3; ++j) {
-            if(cells[i][j] == "●") {
-                cells[i][j] = ".";
+            if(cells[i][j] == "1;34m.") {
+                cells[i][j] = "30m.";
             }
         }
     }
