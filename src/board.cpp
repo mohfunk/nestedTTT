@@ -1,9 +1,9 @@
-#include"../include/board.h"
 #include<iostream>
 using namespace std;
 
 
-#include "../include/color.h"
+#include "board.h"
+#include "color.h"
 Board::~Board() 
 {
     for(int i = 0; i < 3; ++i)

@@ -1,8 +1,8 @@
 #include<string>
 #include<iostream>
 
-#include"../include/controller.h"
-#include"../include/board.h"
+#include"controller.h"
+#include"board.h"
 using namespace std;
 
 
